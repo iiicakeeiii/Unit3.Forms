@@ -1,11 +1,10 @@
 import {useState} from 'react';
 
 
-const SignUpForm = () => {
+const SignUpForm = ({setToken, API_URL}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
-    const API_URL = "https://fsa-jwt-practice.herokuapp.com/signup";
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -23,8 +22,9 @@ const SignUpForm = () => {
                     })
 
                 });
-           const res = resp.json();
-           console.log(res);
+
+           const res = await resp.json();
+           setToken(res.token)
 
         } catch (e) {
             setError(e.message);
@@ -35,7 +35,7 @@ const SignUpForm = () => {
         <>
             <h2 className="text-amber-200">Sign Up</h2>
             {error && <p>{error}</p>}
-            <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
+            <form className="flex flex-col gap-2 text-amber-200" onSubmit={handleSubmit}>
                 <label>
                     Username:
                     <input className="mx-1 border-2" value={username} onChange={

@@ -4,14 +4,22 @@ import Authenticate from "./components/Authenticate.jsx";
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [token, setToken] = useState(null);
+    const API_URL = "https://fsa-jwt-practice.herokuapp.com/signup";
 
-  return (
-    <>
-	    <SignUpForm />
-        <Authenticate />
-    </>
-  )
+
+    return (
+        <>
+            <div className="flex flex-col gap-10">
+                <span className="border-8" >
+                    <SignUpForm  setToken={setToken} API_URL={API_URL} />
+                </span>
+                <span className={"border-8"}>
+                    <Authenticate token={token} API_URL={API_URL}/>
+                </span>
+            </div>
+        </>
+    )
 }
 
 export default App
