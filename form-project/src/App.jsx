@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import SignUp from './components/SignUp.jsx'
-import Authentication from "./components/Authentication.jsx";
+import SignUpForm from "./components/SignUpForm.jsx";
+import Authenticate from "./components/Authenticate.jsx";
 import './App.css'
 
 function App() {
@@ -8,8 +8,8 @@ function App() {
 
   return (
     <>
-	    <SignUp />
-        <Authentication />
+	    <SignUpForm />
+        <Authenticate />
     </>
   )
 }
