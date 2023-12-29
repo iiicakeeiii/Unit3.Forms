@@ -5,8 +5,7 @@ import './App.css'
 
 function App() {
     const [token, setToken] = useState(null);
-    const API_URL = "https://fsa-jwt-practice.herokuapp.com/signup";
-
+    const API_URL = `https://fsa-jwt-practice.herokuapp.com`;
 
     return (
         <>

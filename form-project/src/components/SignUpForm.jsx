@@ -5,12 +5,13 @@ const SignUpForm = ({setToken, API_URL}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
+    const SIGNUP_URL = `${API_URL}/signup`
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-           const resp = await fetch(API_URL,
+           const resp = await fetch(SIGNUP_URL,
                 {
                     method: "POST",
                     headers: {
@@ -25,6 +26,7 @@ const SignUpForm = ({setToken, API_URL}) => {
 
            const res = await resp.json();
            setToken(res.token)
+            console.log(res)
 
         } catch (e) {
             setError(e.message);

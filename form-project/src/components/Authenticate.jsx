@@ -5,6 +5,7 @@ const Authenticate = ({token, API_URL}) => {
     const [successMessage, setSuccessMessage] = useState(null);
 
     const handleClick = async () => {
+        console.log(AUTH_URL)
         try {
             const resp = await fetch(AUTH_URL,
                 {
@@ -16,7 +17,7 @@ const Authenticate = ({token, API_URL}) => {
                 }
             );
             const res = await resp.json();
-            // setSuccessMessage(res.message);
+            setSuccessMessage(res.message);
             console.log(res)
         } catch (e) {
             console.error(e.message);
@@ -32,7 +33,6 @@ const Authenticate = ({token, API_URL}) => {
 
                 <span>{successMessage}</span>
             </div>
-
         </>
     )
 }
